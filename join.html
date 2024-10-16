@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodeKrafters • Join</title>
+  <link rel="stylesheet" href="css/join.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+  <nav>
+    <ul class="sidebar">
+      <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg></a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="join.html" class="active">Join</a></li>
+      <li><a href="contactus.html">Contact Us</a></li>
+      <li><a href="ourteam.html">Our Team</a></li>
+    </ul>
+    <ul>
+      <li><span id="ck">Code Krafters</span></li>
+      <li class="hideOnMobile"><a href="index.html">Home</a></li>
+      <li class="hideOnMobile"><a href="events.html">Events</a></li>
+      <li class="hideOnMobile"><a href="join.html" class="active">Join</a></li>
+      <li class="hideOnMobile"><a href="contactus.html">Contact Us</a></li>
+      <li class="hideOnMobile"><a href="ourteam.html">Our Team</a></li>
+      <li class="menu-button" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></svg></a></li>
+    </ul>
+  </nav>
+
+
+  <center>
+    <h2 style="font-size: 7vh; color: #0fe;">JOIN US</h2>
+    <div class="form">
+      <form id="joinForm">
+          <div class="inputbox">
+              <label for="username">NAME</label><br><br>
+              <input type="text" name="username" value="" id="username" required>
+          </div>
+  
+          <div class="inputbox">
+              <label for="email">EMAIL</label><br><br>
+              <input type="text" name="email" value="" id="email" required>
+          </div>
+  
+          <div class="inputbox">
+              <label>YEAR</label><br><br>
+              <input type="radio" name="year" id="year1" value="1"><label for="year1">1st</label><br>
+              <input type="radio" name="year" id="year2" value="2"><label for="year2">2nd</label><br>
+              <input type="radio" name="year" id="year3" value="3"><label for="year3">3rd</label><br>
+              <input type="radio" name="year" id="year4" value="4"><label for="year4">4th</label><br>
+              <input type="radio" name="year" id="year5" value="5"><label for="year5">5th</label>
+          </div>
+  
+          <div class="inputbox">
+              <label>DEPARTMENT</label><br><br>
+              <select id="department" class="form-control dept" name="department">
+                  <option value="CSE">CSE</option>
+                  <option value="AIDS">CSE AIDS</option>
+                  <option value="AIML">CSE AIML</option>
+                  <option value="IT">IT</option>
+                  <option value="MECH">MECHANICAL</option>
+                  <option value="CIVIL">CIVIL</option>
+                  <option value="ARCH">ARCHITECTURE</option>
+                  <option value="ECE">ECE</option>
+                  <option value="EEE">EEE</option>
+                  <option value="EIE">EIE</option>
+              </select>
+          </div>
+  
+          <div class="inputbox">
+              <label>WING</label><br><br>
+              <select id="wing" name="wing" class="form-control">
+                  <option value="Web Development">Web Development</option>
+                  <option value="App Development">App Development</option>
+                  <option value="DSA">DSA</option>
+                  <option value="UI/UX">UI/UX</option>
+                  <option value="AIML">AI/ML</option>
+                  <option value="Data Science">Data Science</option>
+                  <option value="Outreach">Outreach</option>
+                  <option value="Open Source">Open Source</option>
+              </select>
+          </div>
+  
+          <input type="submit" value="JOIN" id="submit">
+      </form>
+  </div>
+  
+  <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
+      import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-database.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-analytics.js";
+  
+      // Firebase configuration
+      const firebaseConfig = {
+  apiKey: "AIzaSyAglEH0AtfCy0tP0pbsle7qryfrlSTc34I",
+  authDomain: "codezee-84c2e.firebaseapp.com",
+  databaseURL: "https://codezee-84c2e-default-rtdb.firebaseio.com",
+  projectId: "codezee-84c2e",
+  storageBucket: "codezee-84c2e.appspot.com",
+  messagingSenderId: "84372995966",
+  appId: "1:84372995966:web:6ac01c35cfb8d7c271bd2f",
+  measurementId: "G-0CKDSF4X4X"
+};
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const db = getDatabase(app);
+      const analytics = getAnalytics(app);
+  
+      document.getElementById("submit").addEventListener('click', function(e) {
+          e.preventDefault();
+  
+          // Get selected year (radio)
+          const year = document.querySelector('input[name="year"]:checked') ? 
+              document.querySelector('input[name="year"]:checked').value : '';
+  
+          set(ref(db, 'user/' + document.getElementById("username").value), {
+              username: document.getElementById("username").value,
+              email: document.getElementById("email").value,
+              department: document.getElementById("department").value,
+              year: year,
+              wing: document.getElementById("wing").value
+          });
+  
+          alert("Thank You for Joining! We Welcome You to our Club!");
+      });
+  </script>
+  <script>
+    function showSidebar(){
+      const sidebar = document.querySelector('.sidebar')
+      sidebar.style.display = 'flex'
+    }
+    function hideSidebar(){
+      const sidebar = document.querySelector('.sidebar')
+      sidebar.style.display = 'none'
+    }
+
+  </script>
+</body>
+</html>

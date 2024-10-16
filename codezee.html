@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodeKrafters • Codezee</title>
+  <link rel="stylesheet" href="css/codezee.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+  <nav>
+    <ul class="sidebar">
+      <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg></a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="events.html" class="active">Events</a></li>
+      <li><a href="join.html">Join</a></li>
+      <li><a href="contactus.html">Contact Us</a></li>
+      <li><a href="ourteam.html">Our Team</a></li>
+    </ul>
+    <ul>
+      <li><span id="ck">Code Krafters</span></li>
+      <li class="hideOnMobile"><a href="index.html">Home</a></li>
+      <li class="hideOnMobile"><a href="events.html" class="active">Events</a></li>
+      <li class="hideOnMobile"><a href="join.html">Join</a></li>
+      <li class="hideOnMobile"><a href="contactus.html">Contact Us</a></li>
+      <li class="hideOnMobile"><a href="ourteam.html">Our Team</a></li>
+      <li class="menu-button" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></svg></a></li>
+    </ul>
+  </nav>
+
+  <h1 style="text-align: center; margin-top: 2vh;">Register</h1>
+  <section class="codez">
+    <div class="form">
+    <br><br>
+    <label for="username">NAME</label><br>
+    <input type="text" name="username" id="username" required>
+    <br><br>
+
+    <label>YEAR</label><br>
+    <select id="year" name="year">
+        <option value="1">1st Year</option>
+        <option value="2">2nd Year</option>
+        <option value="3">3rd Year</option>
+        <option value="4">4th Year</option>
+    </select>
+    <br><br>
+
+    <label>DEPARTMENT</label><br>
+    <select id="department" name="department">
+        <option value="CSE">CSE</option>
+        <option value="AIDS">CSE AIDS</option>
+        <option value="AIML">CSE AIML</option>
+        <option value="IT">IT</option>
+        <option value="MECH">MECHANICAL</option>
+        <option value="CIVIL">CIVIL</option>
+        <option value="ARCH">ARCHITECTURE</option>
+        <option value="ECE">ECE</option>
+        <option value="EEE">EEE</option>
+        <option value="EIE">EIE</option>
+    </select>
+    <br><br>
+
+    <label for="TEAMNAME">TEAM NAME</label><br>
+    <input type="text" name="TEAMNAME" id="TEAMNAME" required>
+    <br><br>
+
+    <label for="MEM1">MEMBER 1</label><br>
+    <input type="text" name="MEM1" id="MEM1" required>
+    <br><br>
+
+    <label for="MEM2">MEMBER 2</label><br>
+    <input type="text" name="MEM2" id="MEM2" required>
+    <br><br>
+
+    <label for="MEM3">MEMBER 3</label><br>
+    <input type="text" name="MEM3" id="MEM3" required>
+    <br><br>
+
+    <label for="MEM4">MEMBER 4</label><br>
+    <input type="text" name="MEM4" id="MEM4" required>
+    <br><br>
+
+    <input type="submit" value="REGISTER" id="submit">
+  </div>
+</section>
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
+    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-database.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-analytics.js";
+
+    // Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyCf7TTtnXN-qrFpqLl2DeEL8rS_oBwWQTU",
+        authDomain: "codekrafters-d96aa.firebaseapp.com",
+        databaseURL: "https://codekrafters-d96aa-default-rtdb.firebaseio.com",
+        projectId: "codekrafters-d96aa",
+        storageBucket: "codekrafters-d96aa.appspot.com",
+        messagingSenderId: "543053787051",
+        appId: "1:543053787051:web:de64236ce4ff2242f1ecee",
+        measurementId: "G-64JV3V4DNM"
+    };
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+    const analytics = getAnalytics(app);
+
+    document.getElementById("submit").addEventListener('click', function(e) {
+        e.preventDefault();
+
+        set(ref(db, 'user/' + document.getElementById("username").value), {
+            username: document.getElementById("username").value,
+            department: document.getElementById("department").value,
+            TEAMNAME: document.getElementById('TEAMNAME').value,
+            year: document.getElementById('year').value,
+            member1: document.getElementById('MEM1').value,
+            member2: document.getElementById('MEM2').value,
+            member3: document.getElementById('MEM3').value,
+            member4: document.getElementById('MEM4').value
+        });
+
+        alert("Thank You for Joining! We Welcome You to our Club!");
+    });
+</script>
+<script>
+  function showSidebar(){
+    const sidebar = document.querySelector('.sidebar')
+    sidebar.style.display = 'flex'
+  }
+  function hideSidebar(){
+    const sidebar = document.querySelector('.sidebar')
+    sidebar.style.display = 'none'
+  }
+
+</script>
+</body>
+</html>

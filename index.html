@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodeKrafters • Home</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+  <nav>
+    <ul class="sidebar">
+      <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg></a></li>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="join.html">Join</a></li>
+      <li><a href="contactus.html">Contact Us</a></li>
+      <li><a href="ourteam.html">Our Team</a></li>
+    </ul>
+    <ul>
+      <li><span id="ck">Code Krafters</span></li>
+      <li class="hideOnMobile"><a href="index.html" class="active">Home</a></li>
+      <li class="hideOnMobile"><a href="events.html">Events</a></li>
+      <li class="hideOnMobile"><a href="join.html">Join</a></li>
+      <li class="hideOnMobile"><a href="contactus.html">Contact Us</a></li>
+      <li class="hideOnMobile"><a href="ourteam.html">Our Team</a></li>
+      <li class="menu-button" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></svg></a></li>
+    </ul>
+  </nav>
+
+  <div id="loading-screen" class="loading-container">
+    <img src="img/code-krafters.png" alt="emblem" class="spin">
+    <span style="color: #0fe; font-size: 3rem;" class="attp"></span>
+</div>
+
+
+<div id="main-content" class="hidden">
+  <section class="homepg" style="margin-bottom: 100px;">
+    <div class="home-img">
+      <img src="/img/code-krafters.png" id="emblem"><br>
+      <span id="be">Be <span class="auto-type"></span></span>
+    </div>
+  </section>
+</div>
+
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script>
+    function showSidebar(){
+      const sidebar = document.querySelector('.sidebar')
+      sidebar.style.display = 'flex'
+    }
+    function hideSidebar(){
+      const sidebar = document.querySelector('.sidebar')
+      sidebar.style.display = 'none'
+    }
+
+    var typed = new Typed(".auto-type",{
+      strings: ["Unique!", "Different!", "Innovative!"],
+      typeSpeed: 75,
+      backSpeed: 75,
+      loop: true,
+      loopCount: Infinity
+    }
+  
+  )
+  </script>
+
+<script>
+  window.addEventListener('load', () => {
+  const loadingScreen = document.getElementById('loading-screen');
+  const mainContent = document.getElementById('main-content');
+
+
+  setTimeout(() => {
+
+      loadingScreen.style.opacity = '0';
+
+      setTimeout(() => {
+          loadingScreen.style.display = 'none'; 
+          mainContent.classList.add('visible'); 
+      }, 800);
+      
+  }, 2500);
+});
+
+var tip = new Typed(".attp",{
+      strings: ["Loading..."],
+      typeSpeed: 210,
+      backSpeed: 50,
+      loop: true,
+      loopCount: 1
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodeKrafters • Contact</title>
+  <link rel="stylesheet" href="css/contactus.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+  <nav>
+    <ul class="sidebar">
+      <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg></a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="join.html">Join</a></li>
+      <li><a href="contactus.html" class="active">Contact Us</a></li>
+      <li><a href="ourteam.html">Our Team</a></li>
+    </ul>
+    <ul>
+      <li><span id="ck">Code Krafters</span></li>
+      <li class="hideOnMobile"><a href="index.html">Home</a></li>
+      <li class="hideOnMobile"><a href="events.html">Events</a></li>
+      <li class="hideOnMobile"><a href="join.html">Join</a></li>
+      <li class="hideOnMobile"><a href="contactus.html" class="active">Contact Us</a></li>
+      <li class="hideOnMobile"><a href="ourteam.html">Our Team</a></li>
+      <li class="menu-button" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></svg></a></li>
+    </ul>
+  </nav>
+
+
+  <section class="contact" id="contact">
+    <div class="contact-div">
+        <h1 id="headd">CONTACT US</h1>
+        <h2>codekrafters@mce.edu.in</h2>
+
+        <div class="social">
+          <div class="ig"><a href="www.instagram.com/codekraftersofficial/"><img src="img/ig.png" alt="ig"></a></div>
+          <div class="fb"><a href="https://www.facebook.com/share/XVstwNwj31xvMZPX/?mibextid=qi2Omg"><img src="img/fb.png" alt="fb"></a></div>
+          <div class="x"><a href="www.x.com/ckclubofficial"><img src="img/x.png" alt="x"></a></div>
+          <div class="in"><a href="www.linkedin.com/in/codekraftersclub"><img src="img/in.png" alt="linkedin"></a></div>
+          <div class="yt"><a href="www.youtube.com/@codekraftersofficial"><img src="img/yt.png" alt="yt"></a></div>
+        </div>
+
+
+    </div>
+    
+
+    <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!4v1715697563633!6m8!1m7!1slDe0zPHb5fisTTIlr45kig!2m2!1d13.04228180356383!2d80.1897836155517!3f266.9598775872814!4f-2.742949954871577!5f0.7820865974627469" width="800" height="500" style="border:0;" allowfullscreen="" id="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+</section>
+
+  <script>
+    function showSidebar(){
+      const sidebar = document.querySelector('.sidebar')
+      sidebar.style.display = 'flex'
+    }
+    function hideSidebar(){
+      const sidebar = document.querySelector('.sidebar')
+      sidebar.style.display = 'none'
+    }
+
+  </script>
+
+
+</body>
+</html>
