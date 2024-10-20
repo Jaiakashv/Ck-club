@@ -126,10 +126,13 @@
               department: document.getElementById("department").value,
               year: year,
               wing: document.getElementById("wing").value
-          });
-  
-          alert("Thank You for Joining! We Welcome You to our Club!");
-      });
+          }).then(() => {
+        alert("Thank You for Joining! We Welcome You to our Club!");
+        window.location.href = "codezee.html";
+    }).catch((error) => {
+        console.error("Error writing to database: ", error);
+    });
+});
   </script>
   <script>
     function showSidebar(){
