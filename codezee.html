@@ -110,23 +110,25 @@
     const db = getDatabase(app);
     const analytics = getAnalytics(app);
 
-    document.getElementById("submit").addEventListener('click', function(e) {
-        e.preventDefault();
+   document.getElementById("submit").addEventListener('click', function(e) {
+    e.preventDefault();
 
-        set(ref(db, 'user/' + document.getElementById("username").value), {
-            username: document.getElementById("username").value,
-            department: document.getElementById("department").value,
-            TEAMNAME: document.getElementById('TEAMNAME').value,
-            year: document.getElementById('year').value,
-            member1: document.getElementById('MEM1').value,
-            member2: document.getElementById('MEM2').value,
-            member3: document.getElementById('MEM3').value,
-            member4: document.getElementById('MEM4').value
-        });
-
+    set(ref(db, 'user/' + document.getElementById("username").value), {
+        username: document.getElementById("username").value,
+        department: document.getElementById("department").value,
+        TEAMNAME: document.getElementById('TEAMNAME').value,
+        year: document.getElementById('year').value,
+        member1: document.getElementById('MEM1').value,
+        member2: document.getElementById('MEM2').value,
+        member3: document.getElementById('MEM3').value,
+        member4: document.getElementById('MEM4').value
+    }).then(() => {
         alert("Thank You for Joining! We Welcome You to our Club!");
-        window.location.href="join.html";
+        window.location.href = "join.html"; // Replace with your desired URL
+    }).catch((error) => {
+        console.error("Error writing to database: ", error);
     });
+});
 </script>
 <script>
   function showSidebar(){
